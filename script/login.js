@@ -9,7 +9,12 @@ document.addEventListener('DOMContentLoaded', function () {
         // Ici, vous pouvez ajouter votre logique pour envoyer les données de connexion à votre serveur, par exemple en utilisant fetch() ou XMLHttpRequest.
 
         // Exemple de requête fetch pour envoyer les données à un serveur
-        fetch('/Api/uti.json') // Remplacez 'votre-fichier-json.json' par le chemin correct vers votre fichier JSON
+        fetch('/Api/uti.json', {
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            }
+        })
             .then(function (response) {
                 if (response.ok) {
                     return response.json();
@@ -22,8 +27,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 const user = data.find(user =>
                     user.username === username && user.password === password
                 );
+                // const token = createJWT(user);
+                // localStorage.setItem('jwt', token);
                 if (user) {
-                    // createJWT(user)
                     // Redirection vers la page "index.html"
                     const login = document.querySelector('.login');
                     login.style.display = 'none';
