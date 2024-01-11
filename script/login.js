@@ -28,8 +28,8 @@ document.addEventListener('DOMContentLoaded', function () {
                     user.username === username && user.password === password
                 );
                 if (user) {
-                    const token = createJWT(user);
-                    localStorage.setItem('jwt', token);
+                    // const token = createJWT(user);
+                    // localStorage.setItem('jwt', token);
                     // Redirection vers la page "index.html"
                     const login = document.querySelector('.login');
                     login.style.display = 'none';
