@@ -27,9 +27,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 const user = data.find(user =>
                     user.username === username && user.password === password
                 );
-                // const token = createJWT(user);
-                // localStorage.setItem('jwt', token);
                 if (user) {
+                    const token = createJWT(user);
+                    localStorage.setItem('jwt', token);
                     // Redirection vers la page "index.html"
                     const login = document.querySelector('.login');
                     login.style.display = 'none';
